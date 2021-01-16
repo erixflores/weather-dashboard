@@ -29,15 +29,14 @@ function displayWeather(event){
         currentWeather(city);
     }
 }
-// Here we create the AJAX call
+// Here I create the AJAX call
 function currentWeather(city){
-    // Here we build the URL so we can get a data from server side.
+    // Here I built the URL so I can get a data from server side.
     var queryURL= "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=" + APIKey;
     $.ajax({
         url:queryURL,
         method:"GET",
     }).then(function(response){
-
         // parse the response to display the current weather including the City name. the Date and the weather icon. 
         console.log(response);
         //Dta object from server side Api for icon property.
@@ -103,7 +102,6 @@ function forecast(cityid){
         url:queryforcastURL,
         method:"GET"
     }).then(function(response){
-        
         for (i=0;i<5;i++){
             var date= new Date((response.list[((i+1)*8)-1].dt)*1000).toLocaleDateString();
             var iconcode= response.list[((i+1)*8)-1].weather[0].icon;
@@ -158,7 +156,6 @@ function clearHistory(event){
     sCity=[];
     localStorage.removeItem("cityname");
     document.location.reload();
-
 }
 //Click Handlers
 $("#search-button").on("click",displayWeather);
