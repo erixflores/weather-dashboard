@@ -29,7 +29,7 @@ function displayWeather(event){
         currentWeather(city);
     }
 }
-// Here I create the AJAX call
+// I create the AJAX call
 function currentWeather(city){
     // Here I built the URL so I can get a data from server side.
     var queryURL= "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=" + APIKey;
@@ -58,7 +58,6 @@ function currentWeather(city){
         var windsmph=(ws*2.237).toFixed(1);
         $(currentWSpeed).html(windsmph+"MPH");
         // Display UVIndex.
-        //By Geographic coordinates method and using appid and coordinates as a parameter we are going build our uv query url inside the function below.
         UVIndex(response.coord.lon,response.coord.lat);
         forecast(response.id);
         if(response.cod==200){
